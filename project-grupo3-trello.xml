@@ -7,7 +7,7 @@
   <con:entry key="Save After" value="false"/>
   <con:entry key="Add Settings" value="false"/>
   <con:entry key="WSS Password Type" value=""/>
-  <con:entry key="TestSuite" value="TestSuiteBoards"/>
+  <con:entry key="TestSuite" value="&lt;all>"/>
   <con:entry key="Endpoint" value=""/>
   <con:entry key="Select Report Type" value=""/>
   <con:entry key="System Properties" value=""/>
@@ -90,7 +90,7 @@ def probar(def header, def headerValue){
 	}
 }
 
-	</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="73459116-1c2f-49b6-9dc8-5d5e7619b16e" name="validar schema"><con:configuration><scriptText>import com.fasterxml.jackson.databind.ObjectMapper
+	</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="73459116-1c2f-49b6-9dc8-5d5e7619b16e" name="validar schema" disabled="true"><con:configuration><scriptText>import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 
 def stringSchema =
