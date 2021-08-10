@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5411423d-52f2-4680-aa8a-fc7405fa13ca" activeEnvironment="Default" name="project-grupo3-trello" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="TestSuiteBoards"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:RestService" id="a014f3de-5ebc-4b09-bbc1-0e50c3f94d81" wadlVersion="http://wadl.dev.java.net/2009/02" name="api-trello" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>${#Project#url}</con:endpoint></con:endpoints><con:resource name="Boards" path="/1/boards" id="9f1b1800-f5f1-4a46-8190-4ab54f166aff"><con:settings/><con:parameters><con:parameter><con:name>key</con:name><con:value>${#Project#key}</con:value><con:style>QUERY</con:style><con:default>${#Project#key}</con:default></con:parameter><con:parameter><con:name>token</con:name><con:value>${#Project#token}</con:value><con:style>QUERY</con:style><con:default>${#Project#token}</con:default></con:parameter></con:parameters><con:resource name="id" path="{id}" id="334867fc-49bf-4395-914e-e5352acba7c5"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>${#Project#idBoard}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#idBoard}</con:default></con:parameter></con:parameters><con:method name="get-board-by-id" id="33683c2a-fe4e-4490-84e3-8de992490622" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/plain; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:f78="https://api.trello.com/1/boards/60f781c804b73552c75a79f6">f78:Response</con:element></con:representation><con:request name="Request 1" id="9a2b2a5b-2a31-402d-b35b-6431023ca1e4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:originalUri>https://api.trello.com/1/boards/</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="id" value="dsfafds"/>
+  <con:entry key="key" value=""/>
+  <con:entry key="token" value="${#Project#token}"/>
+</con:parameters><con:parameterOrder><con:entry>key</con:entry><con:entry>token</con:entry><con:entry>id</con:entry></con:parameterOrder></con:request></con:method><con:method name="update-board-by-id" id="15390534-afb3-4426-a97b-647448aac428" method="PUT"><con:settings/><con:parameters><con:parameter><con:name>name</con:name><con:value>${#Project#updatedName}</con:value><con:style>QUERY</con:style><con:default>${#Project#updatedName}</con:default></con:parameter></con:parameters><con:request name="Request 1" id="13ed773d-2132-4bd7-b0ac-f736733ddc87" mediaType="application/json"><con:settings/><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="name" value="${#Project#updatedName}"/>
+  <con:entry key="id" value="dsfafds"/>
+</con:parameters><con:parameterOrder><con:entry>key</con:entry><con:entry>token</con:entry><con:entry>id</con:entry><con:entry>name</con:entry></con:parameterOrder></con:request></con:method><con:method name="delete-board-by-id" id="0a680ead-55d7-41b8-8192-b042bc6696b2" method="DELETE"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:fa2="https://api.trello.com/1/boards/60fa26ef00eb8f03d90e5191">fa2:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/plain; charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="167700d7-458a-4ce0-91ac-12e17fe8041d" mediaType="application/json" postQueryString="false"><con:settings/><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="dsfafds" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>key</con:entry><con:entry>token</con:entry><con:entry>id</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:method name="create-board" id="bd7b1868-aa51-4cc5-aaac-48f57a82b24b" method="POST"><con:settings/><con:parameters><con:parameter><con:name>name</con:name><con:value>${#Project#name}</con:value><con:style>QUERY</con:style><con:default>${#Project#name}</con:default></con:parameter></con:parameters><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/plain; charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:boar="https://api.trello.com/1/boards">boar:Response</con:element></con:representation><con:request name="Request 1" id="64d3e300-37a1-424b-8bdb-fc1570b729ba" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:originalUri>https://api.trello.com/1/boards</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="name" value="${#Project#name}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>key</con:entry><con:entry>token</con:entry><con:entry>name</con:entry></con:parameterOrder></con:request><con:request name="Req2" id="2e70a77d-52ad-482e-a903-d2b401ec082e" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:originalUri>https://api.trello.com/1/boards</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="name" value="${#Project#name}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>key</con:entry><con:entry>token</con:entry><con:entry>name</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:testSuite id="e7010e70-cc50-4653-9e36-ba2603cdc270" name="TestSuiteBoards"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9907a4bd-acf4-417b-9515-123d4ea9b51f" failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="create-board" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" disabled="true"><con:settings/><con:testStep type="restrequest" name="get-key" id="e1b75065-7b7a-46a9-b912-d7f2822182f6" disabled="true"><con:settings/><con:config service="api-trello" methodName="get-board-by-id" resourcePath="/1/boards/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="get-key" id="c87d4fe9-a7ae-48b5-81da-05d852b193e0" mediaType="application/json"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:entry key="key" value="${#Project#key}"/><con:entry key="token" value="${#Project#token}"/><con:entry key="id" value="${#Project#idBoard}"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="create-board" id="e60d2592-7c75-44d2-a38a-51b25f064c88"><con:settings/><con:config service="api-trello" methodName="create-board" resourcePath="/1/boards" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="create-board" id="fa747e99-410d-4dc0-acf1-f834bc4264b9" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:originalUri>https://api.trello.com/1/boards</con:originalUri><con:assertion type="Response SLA Assertion" id="c29102c5-839d-4fc7-a1d5-7235e406867e" name="Response SLA"><con:configuration><SLA>${#TestCase#responseTime}</SLA></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="f82cf02e-57b9-4833-a5f8-2072540c9ad7" name="Valid HTTP Status Codes"><con:configuration><codes>${#TestCase#statusCode}</codes></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="14c9ce56-49b7-4c11-bb45-e770f032f5bc" name="Invalid HTTP Status Codes" disabled="true"><con:configuration><codes>500</codes></con:configuration></con:assertion><con:assertion type="Simple Contains" id="df1d4b74-cc82-4847-b56f-52a60261515b" name="contiene valor"><con:configuration><token>${#TestCase#searchWord}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="e945956e-ee5c-4c29-a2e3-d706fce28534" name="Not Contains" disabled="true"><con:configuration><token>[ERROR]</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="JsonPath Count" id="64580406-7399-4580-b7b2-d2fdc91bfd8b" name="propiedad id existe" disabled="true"><con:configuration><path>id</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="6906c4e5-45af-4d45-b616-ce28576ff2ee" name="JsonPath Existence Match"><con:configuration/></con:assertion><con:assertion type="JsonPath Existence Match" id="809236e2-8fe9-4d0a-9e48-a32fbae15bc0" name="la propiedad id existe"><con:configuration><path>id</path><content>${#TestCase#existsId}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="313f0640-3584-435d-b26d-0df0bcfabed4" name="el nombre del tablero es correcto"><con:configuration><path>name</path><content>${#Project#name}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath RegEx Match" id="939fcc74-a71b-48ea-b8d8-ba4a3f2a53c2" name="JsonPath RegEx Match" disabled="true"><con:configuration/></con:assertion><con:assertion type="GroovyScriptAssertion" id="ca169b93-2130-403d-8934-44c37cbe3c99" name="actualizar id board"><con:configuration><scriptText>import groovy.json.JsonSlurper;
+
+//obtengo la respuesta del api
+def responseBody = messageExchange.responseContent;
+
+
+def jsonSlurper = new JsonSlurper();
+def responseJson = jsonSlurper.parseText(responseBody);
+context.testCase.testSuite.project.setPropertyValue("idBoard",responseJson.id);</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0339a924-c2dc-4079-a080-86de8cd6782e" name="validar headers"><con:configuration><scriptText>resultado = true;
+finalMessage = 'Error Header: '
+
+
+header = "Content-Type";
+headerValue = "application/json";
+probar(header,headerValue);
+
+header = "Content-Encoding";
+headerValue = "gzip";
+probar(header,headerValue);
+
+header = "Cache-Control";
+headerValue = "no-cache";
+probar(header,headerValue);
+
+header = "X-Trello-Environment";
+headerValue = "Production";
+probar(header,headerValue);
+
+
+
+assert resultado:finalMessage;
+
+
+
+
+
+//funcion reutilizable validar
+def validar(def condicion, def message){
+	if(condicion==false){
+		resultado = false;
+		finalMessage = finalMessage +' | '+message;
+	}
+}
+
+def probar(def header, def headerValue){
+	
+	headerToValidate = messageExchange.responseHeaders[header];
+	validar(headerToValidate !=null,"Not found ${header}");
+	if(headerToValidate !=null){
+		validar(headerToValidate[0].contains(headerValue),"${header} Not contains ${headerValue}");
+	}
+}
+
+	</scriptText></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="73459116-1c2f-49b6-9dc8-5d5e7619b16e" name="validar schema"><con:configuration><scriptText>import com.fasterxml.jackson.databind.ObjectMapper
+import com.github.fge.jsonschema.main.JsonSchemaFactory
+
+def stringSchema =
+'''
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "required": [
+        "id",
+        "name",
+        "desc",
+        "descData",
+        "closed",
+        "idOrganization",
+        "idEnterprise",
+        "pinned",
+        "url",
+        "shortUrl",
+        "prefs",
+        "labelNames",
+        "limits"
+    ],
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "string"
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string"
+        },
+        "desc": {
+            "$id": "#/properties/desc",
+            "type": "string"
+        },
+        "descData": {
+            "$id": "#/properties/descData",
+            "type": "null"
+        },
+        "closed": {
+            "$id": "#/properties/closed",
+            "type": "boolean"
+        },
+        "idOrganization": {
+            "$id": "#/properties/idOrganization",
+            "type": "string"
+        },
+        "idEnterprise": {
+            "$id": "#/properties/idEnterprise",
+            "type": "null"
+        },
+        "pinned": {
+            "$id": "#/properties/pinned",
+            "type": "boolean"
+        },
+        "url": {
+            "$id": "#/properties/url",
+            "type": "string"
+        },
+        "shortUrl": {
+            "$id": "#/properties/shortUrl",
+            "type": "string"
+        },
+        "prefs": {
+            "$id": "#/properties/prefs",
+            "type": "object",
+            "required": [
+                "permissionLevel",
+                "hideVotes",
+                "voting",
+                "comments",
+                "invitations",
+                "selfJoin",
+                "cardCovers",
+                "isTemplate",
+                "cardAging",
+                "calendarFeedEnabled",
+                "background",
+                "backgroundImage",
+                "backgroundImageScaled",
+                "backgroundTile",
+                "backgroundBrightness",
+                "backgroundColor",
+                "backgroundBottomColor",
+                "backgroundTopColor",
+                "canBePublic",
+                "canBeEnterprise",
+                "canBeOrg",
+                "canBePrivate",
+                "canInvite"
+            ],
+            "properties": {
+                "permissionLevel": {
+                    "$id": "#/properties/prefs/properties/permissionLevel",
+                    "type": "string"
+                },
+                "hideVotes": {
+                    "$id": "#/properties/prefs/properties/hideVotes",
+                    "type": "boolean"
+                },
+                "voting": {
+                    "$id": "#/properties/prefs/properties/voting",
+                    "type": "string"
+                },
+                "comments": {
+                    "$id": "#/properties/prefs/properties/comments",
+                    "type": "string"
+                },
+                "invitations": {
+                    "$id": "#/properties/prefs/properties/invitations",
+                    "type": "string"
+                },
+                "selfJoin": {
+                    "$id": "#/properties/prefs/properties/selfJoin",
+                    "type": "boolean"
+                },
+                "cardCovers": {
+                    "$id": "#/properties/prefs/properties/cardCovers",
+                    "type": "boolean"
+                },
+                "isTemplate": {
+                    "$id": "#/properties/prefs/properties/isTemplate",
+                    "type": "boolean"
+                },
+                "cardAging": {
+                    "$id": "#/properties/prefs/properties/cardAging",
+                    "type": "string"
+                },
+                "calendarFeedEnabled": {
+                    "$id": "#/properties/prefs/properties/calendarFeedEnabled",
+                    "type": "boolean"
+                },
+                "background": {
+                    "$id": "#/properties/prefs/properties/background",
+                    "type": "string"
+                },
+                "backgroundImage": {
+                    "$id": "#/properties/prefs/properties/backgroundImage",
+                    "type": "null"
+                },
+                "backgroundImageScaled": {
+                    "$id": "#/properties/prefs/properties/backgroundImageScaled",
+                    "type": "null"
+                },
+                "backgroundTile": {
+                    "$id": "#/properties/prefs/properties/backgroundTile",
+                    "type": "boolean"
+                },
+                "backgroundBrightness": {
+                    "$id": "#/properties/prefs/properties/backgroundBrightness",
+                    "type": "string"
+                },
+                "backgroundColor": {
+                    "$id": "#/properties/prefs/properties/backgroundColor",
+                    "type": "string"
+                },
+                "backgroundBottomColor": {
+                    "$id": "#/properties/prefs/properties/backgroundBottomColor",
+                    "type": "string"
+                },
+                "backgroundTopColor": {
+                    "$id": "#/properties/prefs/properties/backgroundTopColor",
+                    "type": "string"
+                },
+                "canBePublic": {
+                    "$id": "#/properties/prefs/properties/canBePublic",
+                    "type": "boolean"
+                },
+                "canBeEnterprise": {
+                    "$id": "#/properties/prefs/properties/canBeEnterprise",
+                    "type": "boolean"
+                },
+                "canBeOrg": {
+                    "$id": "#/properties/prefs/properties/canBeOrg",
+                    "type": "boolean"
+                },
+                "canBePrivate": {
+                    "$id": "#/properties/prefs/properties/canBePrivate",
+                    "type": "boolean"
+                },
+                "canInvite": {
+                    "$id": "#/properties/prefs/properties/canInvite",
+                    "type": "boolean"
+                }
+            }
+        },
+        "labelNames": {
+            "$id": "#/properties/labelNames",
+            "type": "object",
+            "required": [
+                "green",
+                "yellow",
+                "orange",
+                "red",
+                "purple",
+                "blue",
+                "sky",
+                "lime",
+                "pink",
+                "black"
+            ],
+            "properties": {
+                "green": {
+                    "$id": "#/properties/labelNames/properties/green",
+                    "type": "string"
+                },
+                "yellow": {
+                    "$id": "#/properties/labelNames/properties/yellow",
+                    "type": "string"
+                },
+                "orange": {
+                    "$id": "#/properties/labelNames/properties/orange",
+                    "type": "string"
+                },
+                "red": {
+                    "$id": "#/properties/labelNames/properties/red",
+                    "type": "string"
+                },
+                "purple": {
+                    "$id": "#/properties/labelNames/properties/purple",
+                    "type": "string"
+                },
+                "blue": {
+                    "$id": "#/properties/labelNames/properties/blue",
+                    "type": "string"
+                },
+                "sky": {
+                    "$id": "#/properties/labelNames/properties/sky",
+                    "type": "string"
+                },
+                "lime": {
+                    "$id": "#/properties/labelNames/properties/lime",
+                    "type": "string"
+                },
+                "pink": {
+                    "$id": "#/properties/labelNames/properties/pink",
+                    "type": "string"
+                },
+                "black": {
+                    "$id": "#/properties/labelNames/properties/black",
+                    "type": "string"
+                }
+            }
+        },
+        "limits": {
+            "$id": "#/properties/limits",
+            "type": "object"
+        }
+    }
+}
+''';
+def stringResponse = messageExchange.responseContent;
+
+
+def mapper = new ObjectMapper();
+
+def schema = mapper.readTree(stringSchema);
+def response = mapper.readTree(stringResponse);
+
+def factory = JsonSchemaFactory.byDefault();
+
+def jsonSchema = factory.getJsonSchema(schema);
+
+assert jsonSchema.validInstance(response):"Schema Validation: FAILED ,Reason: "+jsonSchema.validate(response).toString()</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:entry key="key" value="${#Project#key}"/><con:entry key="token" value="${#Project#token}"/><con:entry key="name" value="${#Project#name}"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="actualizar id Board" id="6f364e2f-c171-4377-bcd0-cd7dd843710d" disabled="true"><con:settings/><con:config><script>import groovy.json.JsonSlurper;
+
+//obtengo la respuesta del api
+def responseBody = context.expand('${create-board#Response}');
+
+
+//creo el objeto jsonSlurper que sera el que convierta la respuesta en formato cadena a un objeto JSON
+def jsonSlurper = new JsonSlurper();
+
+//convierto la respuesta que viene en formato cadena a un objeto JSON
+def responseJson = jsonSlurper.parseText(responseBody);
+
+
+testRunner.testCase.testSuite.project.setPropertyValue("idBoard",responseJson.id);</script></con:config></con:testStep><con:testStep type="restrequest" name="get-board-by-id" id="694c237a-6d84-43c9-b0f8-8ad918a13d64"><con:settings/><con:config service="api-trello" methodName="get-board-by-id" resourcePath="/1/boards/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="get-board-by-id" id="40e94015-5964-4883-bf08-737ac7dde837" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:originalUri>https://api.trello.com/1/boards/60fa10a866320b39457b8007</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="36c09e3e-b585-46e9-a75d-b6d2b8047a46" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:entry key="key" value="${#Project#key}"/><con:entry key="token" value="${#Project#token}"/><con:entry key="id" value="${#Project#idBoard}"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="delete-board" id="72468b2e-027e-4141-a634-0031c0e030d3"><con:settings/><con:config service="api-trello" methodName="delete-board-by-id" resourcePath="/1/boards/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete-board" id="ced7ac68-56ca-4fbf-ae45-7480cebddc3b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:originalUri>https://api.trello.com/1/boards/60fa26ef00eb8f03d90e5191</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="05f5a3f2-e6c0-4766-a120-a5331ee435d4" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:entry key="key" value="${#Project#key}"/><con:entry key="token" value="${#Project#token}"/><con:entry key="id" value="${#Project#idBoard}"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="valores" id="ee8ba8e9-98ab-4469-8571-e933d3cd1324"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>id</con:name><con:value>ss</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="printResultsAsserts" id="ee68bfc0-90e1-4a19-b3fb-7620e0f78092"><con:settings/><con:config><script>import com.eviware.soapui.model.testsuite.Assertable.AssertionStatus
+
+def TestCase = testRunner.getTestCase()
+def StepList = TestCase.getTestStepList()
+def message = testRunner.testCase.testSuite.name+'-> '+testRunner.testCase.name
+
+StepList.each{
+	
+    // check that this kind of testStep
+    // can contain assertions (avoid errors with groovy testSteps)
+    if(it.metaClass.respondsTo(it,"getAssertionList")){
+
+         def assertions = it?.getAssertionList()
+
+         assertions?.each{ assertion ->
+
+            if(assertion?.getStatus() == AssertionStatus.FAILED){
+              log.error "${message}->${it.name}->${assertion.name}-> FAILED"
+               assertion?.getErrors()?.each{ error ->
+                 log.error "message ${error.getMessage()}"
+               }
+            }else if(assertion?.getStatus() == AssertionStatus.VALID){
+                log.info "${message}->${it.name} ->${assertion.name}-> Passed"
+            }else if(assertion?.getStatus() == AssertionStatus.UNKNOWN){
+                log.info "${message}->${it.name} ->${assertion.name}-> UNKNOWN (PROBABLY NOT ALREADY EXECUTED)"
+            }
+         }
+     }
+}
+return</script></con:config></con:testStep><con:properties><con:property><con:name>responseTime</con:name><con:value>8000</con:value></con:property><con:property><con:name>statusCode</con:name><con:value>200</con:value></con:property><con:property><con:name>searchWord</con:name><con:value>id</con:value></con:property><con:property><con:name>existsId</con:name><con:value>true</con:value></con:property></con:properties></con:testCase><con:testCase id="03ff89a4-63cf-4ceb-8df8-8531c340658a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="delete-board" searchProperties="true" disabled="true"><con:settings/><con:testStep type="restrequest" name="delete-board" id="b1255969-3bc5-4114-939c-5cc08aefda8d"><con:settings/><con:config service="api-trello" methodName="delete-board-by-id" resourcePath="/1/boards/{id}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete-board" id="a0a4710a-57bf-4ffc-8577-ae299b10c715" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#Project#url}</con:endpoint><con:request/><con:originalUri>https://api.trello.com/1/boards/60fa10a866320b39457b8007</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="a1dc5d58-a25d-456d-87e0-41b8d314bfcc" name="Valid HTTP Status Codes"><con:configuration><codes>404</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><con:entry key="key" value="${#Project#key}"/><con:entry key="token" value="${#Project#token}"/><con:entry key="id" value="${#Project#idBoard}"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="groovy" name="printResultsAsserts" id="b8a5d410-c0c2-4a9d-bc69-c945c4c82af9"><con:settings/><con:config><script>import com.eviware.soapui.model.testsuite.Assertable.AssertionStatus
+
+def TestCase = testRunner.getTestCase()
+def StepList = TestCase.getTestStepList()
+def message = testRunner.testCase.testSuite.name+'-> '+testRunner.testCase.name
+StepList.each{
+	
+    // check that this kind of testStep
+    // can contain assertions (avoid errors with groovy testSteps)
+    if(it.metaClass.respondsTo(it,"getAssertionList")){
+
+         def assertions = it?.getAssertionList()
+
+         assertions?.each{ assertion ->
+
+            if(assertion?.getStatus() == AssertionStatus.FAILED){
+              log.error "${message}->${it.name}->${assertion.name}-> FAILED"
+               assertion?.getErrors()?.each{ error ->
+                 log.error "message ${error.getMessage()}"
+               }
+            }else if(assertion?.getStatus() == AssertionStatus.VALID){
+                log.info "${message}->${it.name} ->${assertion.name}-> Passed"
+            }else if(assertion?.getStatus() == AssertionStatus.UNKNOWN){
+                log.info "${message}->${it.name} ->${assertion.name}-> UNKNOWN (PROBABLY NOT ALREADY EXECUTED)"
+            }
+         }
+     }
+}
+return</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="6276a7ea-a3d9-450c-8b6e-19d0d911ff6c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="data-driven" searchProperties="true"><con:settings/><con:testStep type="groovy" name="iterator" id="e9a23440-f846-438c-aaaa-4d7cf80c8858"><con:settings/><con:config><script>//obteniendo el nombre del archivo
+def nombreArchivo = context.expand('${#TestSuite#inputData}')
+def nombreSuite = testRunner.testCase.testSuite.name
+
+//obteniendo la ruta donde esta el proyecto
+def rutaProyecto = new com.eviware.soapui.support.GroovyUtils(context).projectPath; 
+
+//definiendo la ruta del archivo
+//inputFilePath = rutaProyecto+"\\"+testRunner.testCase.testSuite.name+"\\"+nombreArchivo//para windows
+def inputFilePath = rutaProyecto+"//"+nombreSuite+"//"+nombreArchivo;//para mac
+
+
+def varTestCase; 
+def testCase;
+def runner;
+def count = 0;
+def message;
+def linea
+
+//creo o instancio el archivo de datos CSV
+def file = new File(inputFilePath)
+
+
+// recorriendo cada linea del archivo
+file.eachLine{line, number ->
+
+	if(number==1){
+		return
+	}
+	//todo el codigo de lectura del arhivo para asignar los valores del csv a mis propiedades
+	
+	testCase	= 'create-board'
+	varTestCase = testRunner.testCase.testSuite.project.testSuites[nombreSuite].testCases[testCase];
+	def i = 0;
+	//
+	linea = line.split(',')
+	varTestCase.testSuite.project.setPropertyValue("name",linea[i++])
+	varTestCase.testSuite.project.setPropertyValue("updatedName",linea[i++])
+	varTestCase.setPropertyValue("responseTime",linea[i++])
+	varTestCase.setPropertyValue("statusCode",linea[i++])
+	varTestCase.setPropertyValue("searchWord",linea[i++])
+	varTestCase.setPropertyValue("existsId",linea[i++])
+	
+	//varTestCase.getTestStepByName("Valores").setPropertyValue("statusCode",linea[1])
+	//varTestCase.getTestStepByName("Valores").setPropertyValue("responseTime",linea[2])
+	
+
+	runner = varTestCase.run(null,false);
+
+	message = "DDT iteration ${number-1} -> Execution of test case ${varTestCase.name} -> Test Result: ${runner.status}"
+
+	if (runner.status.toString() == "FAILED"){
+		testRunner.fail("${runner.status}");
+		log.error(message)
+	}else{
+		log.info(message)
+	}
+	//descansando medio segundo para la proxima iteracion
+	sleep 500
+
+
+
+
+	testCase	= 'delete-board'
+	varTestCase = testRunner.testCase.testSuite.project.testSuites[testRunner.testCase.testSuite.name].testCases[testCase];
+
+	//varTestCase.setPropertyValue("responseTime",linea[2])
+	//varTestCase.testSuite.project.setPropertyValue("username",linea[3])
+	
+	runner = varTestCase.run(null,false);
+
+	message = "DDT iteration ${number-1} -> Execution of test case ${varTestCase.name} -> Test Result: ${runner.status}"
+
+	if (runner.status.toString() == "FAILED"){
+		testRunner.fail("${runner.status}");
+		log.error(message)
+	}else{
+		log.info(message)
+	}
+
+	sleep 500
+}</script></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>inputData</con:name><con:value>ddt-boards.csv</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>url</con:name><con:value>https://api.trello.com</con:value></con:property><con:property><con:name>idBoard</con:name><con:value>610a1c0d49c53716302dd6b4</con:value></con:property><con:property><con:name>key</con:name><con:value>38e7987a4fa0c6195e8c27df9d27c099</con:value></con:property><con:property><con:name>token</con:name><con:value>25c156a6489e519ab5e799bfbf14601721a4438835ea2c1efbb9cca7c4248ad3</con:value></con:property><con:property><con:name>name</con:name><con:value>boardFromDDT</con:value></con:property><con:property><con:name>updatedName</con:name><con:value>boardFromDDTSoapUI</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
